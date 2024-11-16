@@ -84,17 +84,17 @@ public class AplikasiPenghitunganHari extends javax.swing.JFrame {
         java.awt.GridBagConstraints gridBagConstraints;
 
         jPanel4 = new javax.swing.JPanel();
-        jPanel1 = new javax.swing.JPanel();
-        cmbBulan = new javax.swing.JComboBox<>();
-        lblTahun = new javax.swing.JLabel();
-        lblBulan = new javax.swing.JLabel();
-        spinnerTahun = new javax.swing.JSpinner();
         jPanel2 = new javax.swing.JPanel();
         lblHariPertama = new javax.swing.JLabel();
         lblHariTerakhir = new javax.swing.JLabel();
         btnHitung = new javax.swing.JButton();
         lblPilihTgl = new javax.swing.JLabel();
         calenderPilihTgl = new com.toedter.calendar.JCalendar();
+        jPanel1 = new javax.swing.JPanel();
+        cmbBulan = new javax.swing.JComboBox<>();
+        lblTahun = new javax.swing.JLabel();
+        lblBulan = new javax.swing.JLabel();
+        spinnerTahun = new javax.swing.JSpinner();
         jPanel3 = new javax.swing.JPanel();
         btnSelisih = new javax.swing.JButton();
         lblSelisih = new javax.swing.JLabel();
@@ -106,10 +106,70 @@ public class AplikasiPenghitunganHari extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Aplikasi Penghitungan Hari");
 
+        jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Aplikasi Penghitung Hari", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.ABOVE_TOP, new java.awt.Font("Roboto", 1, 24), new java.awt.Color(51, 102, 255))); // NOI18N
         jPanel4.setForeground(new java.awt.Color(153, 153, 153));
         jPanel4.setLayout(new java.awt.BorderLayout());
 
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Aplikasi Penghitungan Hari", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.ABOVE_TOP, new java.awt.Font("Roboto", 1, 24), new java.awt.Color(51, 153, 255))); // NOI18N
+        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Perhitungan Jumlah Hari", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.ABOVE_TOP, new java.awt.Font("Roboto", 1, 14))); // NOI18N
+        jPanel2.setToolTipText("");
+        jPanel2.setLayout(new java.awt.GridBagLayout());
+
+        lblHariPertama.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.VERTICAL;
+        gridBagConstraints.ipadx = 20;
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        jPanel2.add(lblHariPertama, gridBagConstraints);
+
+        lblHariTerakhir.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.VERTICAL;
+        gridBagConstraints.ipadx = 20;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        jPanel2.add(lblHariTerakhir, gridBagConstraints);
+
+        btnHitung.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
+        btnHitung.setText("Hitung Jumlah Hari");
+        btnHitung.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnHitungActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        jPanel2.add(btnHitung, gridBagConstraints);
+
+        lblPilihTgl.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
+        lblPilihTgl.setText("Pilih Tanggal");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        jPanel2.add(lblPilihTgl, gridBagConstraints);
+
+        calenderPilihTgl.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
+        calenderPilihTgl.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+                calenderPilihTglPropertyChange(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        jPanel2.add(calenderPilihTgl, gridBagConstraints);
+
         jPanel1.setLayout(new java.awt.GridBagLayout());
 
         cmbBulan.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
@@ -121,28 +181,27 @@ public class AplikasiPenghitunganHari extends javax.swing.JFrame {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 2;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.ipadx = 20;
-        gridBagConstraints.insets = new java.awt.Insets(20, 20, 20, 20);
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
         jPanel1.add(cmbBulan, gridBagConstraints);
 
         lblTahun.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
         lblTahun.setText("Masukkan Tahun");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 3;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.insets = new java.awt.Insets(20, 20, 20, 20);
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
         jPanel1.add(lblTahun, gridBagConstraints);
 
         lblBulan.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
         lblBulan.setText("Pilih Bulan");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 2;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.insets = new java.awt.Insets(20, 20, 20, 20);
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
         jPanel1.add(lblBulan, gridBagConstraints);
 
         spinnerTahun.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
@@ -153,76 +212,19 @@ public class AplikasiPenghitunganHari extends javax.swing.JFrame {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridy = 1;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.ipadx = 20;
-        gridBagConstraints.insets = new java.awt.Insets(20, 20, 20, 20);
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
         jPanel1.add(spinnerTahun, gridBagConstraints);
 
-        jPanel4.add(jPanel1, java.awt.BorderLayout.NORTH);
-
-        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Perhitungan Jumlah Hari", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.ABOVE_TOP, new java.awt.Font("Roboto", 1, 14))); // NOI18N
-        jPanel2.setToolTipText("");
-        jPanel2.setLayout(new java.awt.GridBagLayout());
-
-        lblHariPertama.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 3;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.VERTICAL;
-        gridBagConstraints.ipadx = 20;
-        gridBagConstraints.insets = new java.awt.Insets(20, 20, 20, 20);
-        jPanel2.add(lblHariPertama, gridBagConstraints);
-
-        lblHariTerakhir.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 3;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.VERTICAL;
-        gridBagConstraints.ipadx = 20;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
-        gridBagConstraints.insets = new java.awt.Insets(20, 20, 20, 20);
-        jPanel2.add(lblHariTerakhir, gridBagConstraints);
-
-        btnHitung.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
-        btnHitung.setText("Hitung Jumlah Hari");
-        btnHitung.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnHitungActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 2;
-        gridBagConstraints.gridwidth = 2;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.ipadx = 20;
-        gridBagConstraints.insets = new java.awt.Insets(20, 20, 20, 20);
-        jPanel2.add(btnHitung, gridBagConstraints);
-
-        lblPilihTgl.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
-        lblPilihTgl.setText("Pilih Tanggal");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.gridwidth = 2;
-        gridBagConstraints.insets = new java.awt.Insets(20, 20, 20, 20);
-        jPanel2.add(lblPilihTgl, gridBagConstraints);
-
-        calenderPilihTgl.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
-        calenderPilihTgl.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
-            public void propertyChange(java.beans.PropertyChangeEvent evt) {
-                calenderPilihTglPropertyChange(evt);
-            }
-        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 1;
-        gridBagConstraints.gridwidth = 2;
-        gridBagConstraints.insets = new java.awt.Insets(20, 20, 20, 20);
-        jPanel2.add(calenderPilihTgl, gridBagConstraints);
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 20);
+        jPanel2.add(jPanel1, gridBagConstraints);
 
-        jPanel4.add(jPanel2, java.awt.BorderLayout.WEST);
+        jPanel4.add(jPanel2, java.awt.BorderLayout.PAGE_START);
 
         jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Hitung Selisih Hari", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.ABOVE_TOP, new java.awt.Font("Roboto", 1, 14))); // NOI18N
         jPanel3.setToolTipText("");
@@ -241,7 +243,7 @@ public class AplikasiPenghitunganHari extends javax.swing.JFrame {
         gridBagConstraints.gridwidth = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.ipadx = 10;
-        gridBagConstraints.insets = new java.awt.Insets(20, 20, 20, 20);
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
         jPanel3.add(btnSelisih, gridBagConstraints);
 
         lblSelisih.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
@@ -251,49 +253,72 @@ public class AplikasiPenghitunganHari extends javax.swing.JFrame {
         gridBagConstraints.gridwidth = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.VERTICAL;
         gridBagConstraints.ipadx = 10;
-        gridBagConstraints.insets = new java.awt.Insets(20, 20, 20, 20);
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
         jPanel3.add(lblSelisih, gridBagConstraints);
 
         lblTglAwal.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
         lblTglAwal.setText("Tanggal Awal");
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.insets = new java.awt.Insets(20, 20, 20, 20);
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
         jPanel3.add(lblTglAwal, gridBagConstraints);
 
         lblTglAkhir.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
         lblTglAkhir.setText("Tanggal Akhir");
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.insets = new java.awt.Insets(20, 20, 20, 20);
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
         jPanel3.add(lblTglAkhir, gridBagConstraints);
 
         calenderTglAwal.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 1;
-        gridBagConstraints.insets = new java.awt.Insets(20, 20, 20, 20);
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
         jPanel3.add(calenderTglAwal, gridBagConstraints);
 
         calenderTglAkihr.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 1;
-        gridBagConstraints.insets = new java.awt.Insets(20, 20, 20, 20);
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
         jPanel3.add(calenderTglAkihr, gridBagConstraints);
 
-        jPanel4.add(jPanel3, java.awt.BorderLayout.CENTER);
+        jPanel4.add(jPanel3, java.awt.BorderLayout.PAGE_END);
 
-        getContentPane().add(jPanel4, java.awt.BorderLayout.CENTER);
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, 636, Short.MAX_VALUE)
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+        );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void spinnerTahunStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_spinnerTahunStateChanged
-        perbaruiKalender();
-    }//GEN-LAST:event_spinnerTahunStateChanged
+    private void btnSelisihActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSelisihActionPerformed
+        java.util.Date tglMulai = calenderTglAwal.getDate();
+        java.util.Date tglAkhir = calenderTglAkihr.getDate();
 
-    private void cmbBulanItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cmbBulanItemStateChanged
-        perbaruiKalender();
-    }//GEN-LAST:event_cmbBulanItemStateChanged
+        if (tglMulai != null && tglAkhir != null) {
+            java.time.LocalDate mulai = tglMulai.toInstant().atZone(java.time.ZoneId.systemDefault()).toLocalDate();
+            java.time.LocalDate akhir = tglAkhir.toInstant().atZone(java.time.ZoneId.systemDefault()).toLocalDate();
+
+            long selisih = java.time.temporal.ChronoUnit.DAYS.between(mulai, akhir);
+            String hasilSelisih = "Selisih Hari: " + Math.abs(selisih) + " hari";
+
+            lblSelisih.setText(hasilSelisih);
+            JOptionPane.showMessageDialog(this, hasilSelisih);
+        } else {
+            JOptionPane.showMessageDialog(this, "Tanggal Belum Lengkap Dipilih.", "Kesalahan Input!", JOptionPane.WARNING_MESSAGE);
+        }
+    }//GEN-LAST:event_btnSelisihActionPerformed
 
     private void calenderPilihTglPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_calenderPilihTglPropertyChange
         sinkronkanComboBoxDanSpinner();
@@ -318,34 +343,22 @@ public class AplikasiPenghitunganHari extends javax.swing.JFrame {
         String hariAkhir = terjemahHari(hariTerakhir.getDayOfWeek());
 
         String hasil = String.format(
-                "Jumlah Hari: %d%s\nHari Pertama: %s\nHari Terakhir: %s",
-                hariDalamBulan, pesanKabisat, hariAwal, hariAkhir
+            "Jumlah Hari: %d%s\nHari Pertama: %s\nHari Terakhir: %s",
+            hariDalamBulan, pesanKabisat, hariAwal, hariAkhir
         );
         JOptionPane.showMessageDialog(this, hasil);
 
         lblHariPertama.setText("Hari Pertama: " + hariAwal);
         lblHariTerakhir.setText("Hari Terakhir: " + hariAkhir);
-
     }//GEN-LAST:event_btnHitungActionPerformed
 
-    private void btnSelisihActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSelisihActionPerformed
-        java.util.Date tglMulai = calenderTglAwal.getDate();
-        java.util.Date tglAkhir = calenderTglAkihr.getDate();
+    private void spinnerTahunStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_spinnerTahunStateChanged
+        perbaruiKalender();
+    }//GEN-LAST:event_spinnerTahunStateChanged
 
-        if (tglMulai != null && tglAkhir != null) {
-            java.time.LocalDate mulai = tglMulai.toInstant().atZone(java.time.ZoneId.systemDefault()).toLocalDate();
-            java.time.LocalDate akhir = tglAkhir.toInstant().atZone(java.time.ZoneId.systemDefault()).toLocalDate();
-
-            long selisih = java.time.temporal.ChronoUnit.DAYS.between(mulai, akhir);
-            String hasilSelisih = "Selisih Hari: " + Math.abs(selisih) + " hari";
-
-            lblSelisih.setText(hasilSelisih);
-            JOptionPane.showMessageDialog(this, hasilSelisih);
-        } else {
-            JOptionPane.showMessageDialog(this, "Tanggal Belum Lengkap Dipilih.", "Kesalahan Input!", JOptionPane.WARNING_MESSAGE);
-        }
-
-    }//GEN-LAST:event_btnSelisihActionPerformed
+    private void cmbBulanItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cmbBulanItemStateChanged
+        perbaruiKalender();
+    }//GEN-LAST:event_cmbBulanItemStateChanged
 
     /**
      * @param args the command line arguments
