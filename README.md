@@ -185,7 +185,8 @@ Aplikasi ini menggunakan komponen berikut:
 5. Pilih dua tanggal dan tekan tombol **Hitung Selisih Hari** untuk mengetahui perbedaan hari.
 
 ## Tampilan Aplikasi Saat Dijalankan
-![image](https://github.com/user-attachments/assets/9e39213a-ea83-481a-9760-4a35c108042e)
+![image](https://github.com/user-attachments/assets/040aa0c4-2adc-4960-92da-eab28a0cea29)
+
 
 ---
 
