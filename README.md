@@ -1,7 +1,3 @@
-Berikut adalah README yang sesuai untuk repositori *Aplikasi Penghitungan Hari*, disesuaikan dengan persyaratan Tugas 4:
-
----
-
 # Aplikasi Penghitungan Hari  
 Tugas 4 - Adrian Akhmad Firdaus (2210010491)
 
